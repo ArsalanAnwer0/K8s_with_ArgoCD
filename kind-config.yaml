@@ -1,0 +1,13 @@
+# KIND (Kubernetes IN Docker) Cluster Configuration
+#
+# This creates a single-node cluster with a port mapping so you can
+# access your app at http://localhost:8080 from your browser.
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 30000    # NodePort defined in service.yaml
+        hostPort: 8080          # Access the app at http://localhost:8080
+        protocol: TCP

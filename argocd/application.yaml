@@ -1,0 +1,29 @@
+# An ArgoCD Application tells ArgoCD:
+#   - Where your Git repo is (source of truth)
+#   - Which folder in the repo has the K8s manifests
+#   - Which cluster and namespace to deploy to
+#   - Whether to sync automatically
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-k8s               # Name of this ArgoCD application
+  namespace: argocd             # ArgoCD always lives in the 'argocd' namespace
+spec:
+  project: default              # ArgoCD project (default is fine for learning)
+
+  source:
+    repoURL: https://github.com/YOUR_GITHUB_USERNAME/K8s_with_ArgoCD   # <-- replace with your repo URL
+    targetRevision: HEAD        # Always use the latest commit on the default branch
+    path: k8s                   # Folder in the repo containing K8s manifests
+
+  destination:
+    server: https://kubernetes.default.svc   # Deploy to the same cluster ArgoCD is running in
+    namespace: default                       # Deploy into the 'default' namespace
+
+  syncPolicy:
+    automated:
+      prune: true               # Delete resources that are removed from Git
+      selfHeal: true            # Re-sync if someone manually changes something in the cluster
+    syncOptions:
+      - CreateNamespace=true    # Create the namespace if it doesn't exist

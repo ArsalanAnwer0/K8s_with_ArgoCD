@@ -1,0 +1,17 @@
+# A Service exposes your pods so they can be accessed:
+#   - NodePort: accessible from outside the cluster via a fixed port
+#   - The KIND cluster config maps this port to your localhost
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-k8s               # Name of this service
+  namespace: default
+spec:
+  type: NodePort                # Exposes the service on a port on each node
+  selector:
+    app: hello-k8s              # Routes traffic to pods with this label
+  ports:
+    - port: 80                  # Port the service listens on inside the cluster
+      targetPort: 3000          # Port the app is running on inside the pod
+      nodePort: 30000           # Port exposed on the node (and mapped to localhost:8080)
