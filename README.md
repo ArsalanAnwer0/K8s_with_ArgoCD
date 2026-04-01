@@ -1,6 +1,6 @@
 # Deploying an App on Kubernetes with ArgoCD
 
-A beginner-friendly learning project that walks you through deploying a real application on a local Kubernetes cluster (KIND) using ArgoCD for continuous delivery.
+Learning project that walks you through deploying a real application on a local Kubernetes cluster (KIND) using ArgoCD for continuous delivery.
 
 **What you will learn:**
 - How to containerize a Node.js app with Docker
