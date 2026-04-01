@@ -13,7 +13,7 @@ spec:
   project: default              # ArgoCD project (default is fine for learning)
 
   source:
-    repoURL: https://github.com/YOUR_GITHUB_USERNAME/K8s_with_ArgoCD   # <-- replace with your repo URL
+    repoURL: https://github.com/ArsalanAnwer0/K8s_with_ArgoCD
     targetRevision: HEAD        # Always use the latest commit on the default branch
     path: k8s                   # Folder in the repo containing K8s manifests
 
