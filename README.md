@@ -371,18 +371,6 @@ kind delete cluster --name argocd-demo
 
 ---
 
-## What to Learn Next
-
-Once you are comfortable with this project, here are good next steps:
-
-- **Add a second service** — e.g., connect a PostgreSQL database
-- **Use Helm** — Helm is a package manager for Kubernetes; replace the raw YAML with a Helm chart
-- **Use image tags instead of `:latest`** — update the tag in `deployment.yaml` and push to Git to trigger ArgoCD
-- **Set up a CI pipeline** — use GitHub Actions to automatically build and push your image on every commit
-- **Try Kustomize** — another way to manage environment-specific Kubernetes configs (built into kubectl)
-
----
-
 ## Troubleshooting
 
 **Pods are in `ImagePullBackOff` or `ErrImagePull`**
